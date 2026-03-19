@@ -1,0 +1,18 @@
+[project]
+name = "portalpulse"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.135.1",
+    "gunicorn>=25.1.0",
+    "passlib[bcrypt]>=1.7.4",
+    "psycopg2-binary>=2.9.11",
+    "python-dotenv>=1.2.2",
+    "python-jose[cryptography]>=3.5.0",
+    "redis>=7.3.0",
+    "ruff>=0.15.6",
+    "sqlalchemy>=2.0.48",
+    "uvicorn[standard]>=0.42.0",
+]

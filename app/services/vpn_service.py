@@ -1,5 +1,6 @@
 import httpx
 
+
 class VpnService:
     async def check_vpn(self, ip_address: str) -> dict:
         # This is a placeholder for a real IP reputation service
@@ -12,4 +13,8 @@ class VpnService:
                 # Simple check, a real service would provide more detailed info
                 is_vpn = data.get("security", {}).get("vpn", False)
                 return {"ip_address": ip_address, "is_vpn": is_vpn}
-        return {"ip_address": ip_address, "is_vpn": False, "error": "Could not check IP"}
+        return {
+            "ip_address": ip_address,
+            "is_vpn": False,
+            "error": "Could not check IP",
+        }

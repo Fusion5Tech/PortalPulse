@@ -3,13 +3,15 @@ name = "portalpulse"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.11"
 dependencies = [
-    "fastapi>=0.135.1",
+    "fastapi[standard]>=0.135.1",
     "gunicorn>=25.1.0",
+    "httpx>=0.28.1",
     "passlib[bcrypt]>=1.7.4",
     "psycopg2-binary>=2.9.11",
-    "python-dotenv>=1.2.2",
+    "pydantic-settings>=2.13.1",
+    "python-dotenv>= 1.0.0",
     "python-jose[cryptography]>=3.5.0",
     "redis>=7.3.0",
     "ruff>=0.15.6",

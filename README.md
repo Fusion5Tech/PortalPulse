@@ -48,15 +48,9 @@ uv sync
 ```
 
 ### 4. Set Up Environment Variables
-
-Create a `.env` file in the root of the project and add the following environment variables. Adjust the values to match your local setup.
-
-```env
-DATABASE_URL="postgresql://user:password@localhost/portal_pulse"
-REDIS_URL="redis://localhost:6379"
-SECRET_KEY="a_very_secret_key"
 ```
-
+Veni Vidi Vici! Before running the application, make sure to set up the required environment variables. You can create a `.env` file in the project root.
+```
 ### 5. Run the Application
 
 You can now start the FastAPI development server using `uv`:
@@ -66,37 +60,3 @@ uv run fastapi dev main.py
 ```
 
 The application will be available at `http://127.0.0.1:8000`. You can access the API documentation at `http://127.0.0.1:8000/docs`.
-
-## Voucher Workflow
-
-1. Admin login:
-
-```bash
-curl -X POST http://127.0.0.1:8000/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"username":"admin","password":"admin_password"}'
-```
-
-1. Create vouchers (admin token required):
-
-```bash
-curl -X POST http://127.0.0.1:8000/admin/vouchers \
-  -H "Authorization: Bearer <ADMIN_TOKEN>" \
-  -H "Content-Type: application/json" \
-  -d '{"count":5,"duration_minutes":60}'
-```
-
-1. Get printable vouchers:
-
-```bash
-curl "http://127.0.0.1:8000/admin/vouchers/print?only_unprinted=true" \
-  -H "Authorization: Bearer <ADMIN_TOKEN>"
-```
-
-1. User voucher login (no username/password):
-
-```bash
-curl -X POST http://127.0.0.1:8000/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"voucher_code":"ABC1234567","ip_address":"192.168.1.20","mac_address":"AA:BB:CC:DD:EE:FF","device_name":"Phone"}'
-```
